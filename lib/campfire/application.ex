@@ -13,21 +13,6 @@ defmodule Campfire.Application do
       {Campfire.ResponseCache, path: database_path}
     ]
 
-    children =
-      if System.schedulers_online() > 1 do
-        children ++
-          [
-            {PartitionSupervisor,
-             name: Campfire.DB.ReadPool,
-             child_spec: {Campfire.DB, path: database_path, read_only: true, name: nil},
-             partitions: min(System.schedulers_online(), 8)}
-          ]
-      else
-        children
-      end
-
-    children = children ++ Campfire.HtmlParser.children()
-
     # Jobs run in process; the queue is not durable (see Campfire.Worker).
     # JobTasks starts first so that it stops after the worker drains.
     children =
