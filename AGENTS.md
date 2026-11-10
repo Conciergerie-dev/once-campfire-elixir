@@ -25,3 +25,7 @@ and sequential interleaved runs. Record raw measurements and limitations in benc
 Use `bin/setup-local` for native development, or `bin/mix` for the pinned toolchain.
 Tests run with CAMPFIRE_NO_SERVER=1, CAMPFIRE_JOBS_ADAPTER=disabled and var/bin on PATH.
 Run mix format --check-formatted and mix test --warnings-as-errors before committing.
+Native setup needs Elixir ~> 1.19 and Ruby from reference/.ruby-version (asdf: set
+ASDF_ELIXIR_VERSION/ASDF_RUBY_VERSION). Media byte-identity tests (MediaTest,
+TransformationsTest) only pass with the libvips and ffmpeg versions pinned in Dockerfile.dev;
+newer Homebrew builds fail them with no regression, so compare against a baseline run.

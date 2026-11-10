@@ -94,7 +94,7 @@ bin/rails-to-elixir doctor
 bin/parity-services stop
 ```
 
-The native suite passes **1,969 tests**. The historical **65-gate** token-era parity run covered the
+The native suite has **1,978 tests**. The historical **65-gate** token-era parity run covered the
 reviewed backend; fresh shared browser checks cover the current frontend.
 Verification includes actual
 Chromium flows, all-table/FTS/storage mutation snapshots, injected transaction
